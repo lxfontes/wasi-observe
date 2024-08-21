@@ -114,7 +114,10 @@ sent, a string containing the message text, and an optional list of tags.</p>
 <h2><a name="wasi_observe_tracing"></a>Import interface wasi:observe/tracing</h2>
 <hr />
 <h3>Types</h3>
-<h4><a name="span_info"></a><code>record span-info</code></h4>
+<h4><a name="tags"></a><code>type tags</code></h4>
+<p><a href="#tags"><a href="#tags"><code>tags</code></a></a></p>
+<p>
+#### <a name="span_info"></a>`record span-info`
 <h5>Record Fields</h5>
 <ul>
 <li>
@@ -145,7 +148,7 @@ sent, a string containing the message text, and an optional list of tags.</p>
 NOTE(lxf): This is where https://opentelemetry.io/docs/specs/semconv/ would be useful.</p>
 <h5>Params</h5>
 <ul>
-<li><a name="span_tags.tags"></a><a href="#tags"><code>tags</code></a>: list&lt;(<code>string</code>, <code>string</code>)&gt;</li>
+<li><a name="span_tags.tags"></a><a href="#tags"><code>tags</code></a>: <a href="#tags"><a href="#tags"><code>tags</code></a></a></li>
 </ul>
 <h4><a name="span_event"></a><code>span-event: func</code></h4>
 <p>Add an event to the current span.</p>

@@ -1,4 +1,6 @@
 interface tracing {
+  use types.{tags};
+
   record span-info {
     /// Indicates whether the span is being sampled
     sampled: bool,
@@ -17,7 +19,7 @@ interface tracing {
   ///
   /// Add a list of key-value-pairs to the active span.
   /// NOTE(lxf): This is where https://opentelemetry.io/docs/specs/semconv/ would be useful.
-  span-tags: func(tags: list<tuple<string, string>>);
+  span-tags: func(tags: tags);
 
   /// Add an event to the current span.
   ///
