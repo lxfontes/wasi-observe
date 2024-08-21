@@ -1,0 +1,10 @@
+interface metrics {
+  use types.{tags};
+
+// Increment a counter/gauge value.
+metric-increment: func(metric: string, value: f64, tags: option<tags>);
+/// Set a counter/gauge value.
+metric-set: func(metric: string, value: f64, tags: option<tags>);
+/// Observe histogram/summary value.
+metric-record: func(metric: string, value: f64, tags: option<tags>);
+}

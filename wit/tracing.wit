@@ -1,0 +1,44 @@
+interface tracing {
+  record span-info {
+    /// Indicates whether the span is being sampled
+    sampled: bool,
+    /// The current span-id. Returns `None` if no span is active.
+    span-id: option<string>,
+    /// The current trace-id. Returns `None` if no span is active.
+    trace-id: option<string>,
+  }
+
+  /// Set the span name.
+  ///
+  /// Override the auto-generated span name.
+  span-name: func(name: string);
+
+  /// Add tags to the current span.
+  ///
+  /// Add a list of key-value-pairs to the active span.
+  /// NOTE(lxf): This is where https://opentelemetry.io/docs/specs/semconv/ would be useful.
+  span-tags: func(tags: list<tuple<string, string>>);
+
+  /// Add an event to the current span.
+  ///
+  /// Record an event in the active span.
+  span-event: func(name: string, payload: string);
+
+  /// Add an error to the current span.
+  ///
+  /// Record an error in the active span. Unlike `span-exit`, this does not end the span.
+  /// NOTE(lxf): This is where a 'shared wasi error interface' would be useful.
+  span-error: func(error: string);
+
+  /// Exit the current span.
+  ///
+  /// Early-finalize the span with o11y host.
+  //  The o11y host automatically finalizes spans when they are dropped, but this function allows for explicit finalization.
+  /// This is helpful in any situation where a developer wishes for there to be no other interpretation of a span other than “successful”.
+  span-exit: func();
+
+  /// Get information about the current span.
+  ///
+  /// Retrieve contextual information about the current span.
+  span-status: func() -> span-info;
+}

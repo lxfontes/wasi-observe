@@ -1,0 +1,11 @@
+
+interface types {
+    variant tag-value {
+      blank,
+      /// NOTE(lxf): This is where a 'shared wasi error interface' would be useful.
+      error(string),
+      value(string)
+    }
+
+    type tags = list<tuple<string,tag-value>>;
+}

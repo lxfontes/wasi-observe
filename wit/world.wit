@@ -1,6 +1,7 @@
 package wasi:observe;
 
 world imports {
-    import wasi:logging/logging;
-    import observe;
+    import logging;
+    import metrics;
+    import tracing;
 }
