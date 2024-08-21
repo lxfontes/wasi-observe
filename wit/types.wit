@@ -1,11 +1,16 @@
-
+/// Shared types for the wasi:observe package.
 interface types {
+    /// Tag Values can be: blank, errors, or strings.
     variant tag-value {
+      /// A blank tag. Useful when underlying systems only support labels.
       blank,
+      /// An error. The o11y system will format the error.
       /// NOTE(lxf): This is where a 'shared wasi error interface' would be useful.
       error(string),
+      /// A string value.
       value(string)
     }
 
+    /// A list of key value pairs.
     type tags = list<tuple<string,tag-value>>;
 }

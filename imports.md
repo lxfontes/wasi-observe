@@ -10,26 +10,31 @@
 </li>
 </ul>
 <h2><a name="wasi_observe_types"></a>Import interface wasi:observe/types</h2>
+<p>Shared types for the wasi:observe package.</p>
 <hr />
 <h3>Types</h3>
 <h4><a name="tag_value"></a><code>variant tag-value</code></h4>
+<p>Tag Values can be: blank, errors, or strings.</p>
 <h5>Variant Cases</h5>
 <ul>
 <li>
 <p><a name="tag_value.blank"></a><code>blank</code></p>
+<p>A blank tag. Useful when underlying systems only support labels.
 </li>
 <li>
 <p><a name="tag_value.error"></a><code>error</code>: <code>string</code></p>
-<p>NOTE(lxf): This is where a 'shared wasi error interface' would be useful.
+<p>An error. The o11y system will format the error.
+NOTE(lxf): This is where a 'shared wasi error interface' would be useful.
 </li>
 <li>
 <p><a name="tag_value.value"></a><code>value</code>: <code>string</code></p>
+<p>A string value.
 </li>
 </ul>
 <h4><a name="tags"></a><code>type tags</code></h4>
 <p><a href="#tags"><a href="#tags"><code>tags</code></a></a></p>
-<p>
-## <a name="wasi_observe_logging"></a>Import interface wasi:observe/logging
+<p>A list of key value pairs.
+<h2><a name="wasi_observe_logging"></a>Import interface wasi:observe/logging</h2>
 <p>Logging is a logging API intended to let users emit log messages with
 simple priority levels, a message, and optional contextual attributes.</p>
 <hr />
